@@ -1,0 +1,102 @@
+{
+  "profile": {
+    "name": "Calogeron Ghana Limited",
+    "bio": "100% Local Integrated Construction & Engineering Company with Global Partnerships - Innovation, Excellence, Trust",
+    "avatar": "assets/images/avatar-placeholder.svg"
+  },
+  "theme": {
+    "backgroundGradient": "linear-gradient(135deg, #1a1d29 0%, #2d3142 50%, #1a1d29 100%)",
+    "cardBackground": "rgba(30, 33, 45, 0.85)",
+    "primaryColor": "#dc143c",
+    "textColor": "#ffffff",
+    "linkButtonBackground": "rgba(30, 33, 45, 0.9)",
+    "linkButtonText": "#ffffff",
+    "linkButtonHover": "#dc143c"
+  },
+  "links": [
+    {
+      "id": 1,
+      "title": "About Us",
+      "url": "#about",
+      "icon": "user",
+      "enabled": true
+    },
+    {
+      "id": 2,
+      "title": "Our Services",
+      "url": "#services",
+      "icon": "services",
+      "enabled": true
+    },
+    {
+      "id": 3,
+      "title": "Projects",
+      "url": "#projects",
+      "icon": "projects",
+      "enabled": true
+    },
+    {
+      "id": 4,
+      "title": "Contact Us",
+      "url": "#contact",
+      "icon": "phone",
+      "enabled": true
+    },
+    {
+      "id": 5,
+      "title": "Our Website",
+      "url": "#website",
+      "icon": "globe",
+      "enabled": true
+    },
+    {
+      "id": 6,
+      "title": "Book Appointment",
+      "url": "#appointment",
+      "icon": "calendar",
+      "enabled": true
+    }
+  ],
+  "socialLinks": [
+    {
+      "platform": "facebook",
+      "url": "https://facebook.com/username",
+      "enabled": true
+    },
+    {
+      "platform": "twitter",
+      "url": "https://twitter.com/username",
+      "enabled": true
+    },
+    {
+      "platform": "instagram",
+      "url": "https://instagram.com/username",
+      "enabled": true
+    },
+    {
+      "platform": "whatsapp",
+      "url": "https://wa.me/1234567890",
+      "enabled": true
+    },
+    {
+      "platform": "tiktok",
+      "url": "https://tiktok.com/@username",
+      "enabled": true
+    },
+    {
+      "platform": "youtube",
+      "url": "https://youtube.com/@channel",
+      "enabled": true
+    },
+    {
+      "platform": "linkedin",
+      "url": "https://linkedin.com/in/username",
+      "enabled": false
+    },
+    {
+      "platform": "github",
+      "url": "https://github.com/username",
+      "enabled": false
+    }
+  ]
+}

@@ -1,0 +1,758 @@
+/* ===================================
+   LinkBase - Modern Link-in-Bio Styles
+   =================================== */
+
+/* CSS Custom Properties (Theme Variables) */
+:root {
+  --bg-gradient: linear-gradient(135deg, #1a1d29 0%, #2d3142 50%, #1a1d29 100%);
+  --card-bg: rgba(30, 33, 45, 0.85);
+  --primary-color: #dc143c;
+  --text-color: #ffffff;
+  --text-secondary: #b0b0b0;
+  --link-bg: rgba(30, 33, 45, 0.9);
+  --link-text: #ffffff;
+  --link-hover: #dc143c;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 24px rgba(220, 20, 60, 0.2);
+  --shadow-xl: 0 12px 32px rgba(220, 20, 60, 0.3);
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.6s ease-out;
+  --border-radius: 16px;
+  --border-radius-sm: 12px;
+  --border-radius-full: 50%;
+}
+
+/* ===================================
+   Reset & Base Styles
+   =================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  background: var(--bg-gradient);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  position: relative;
+  overflow-x: hidden;
+  color: var(--text-color);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Animated Gradient Background Effect */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+      circle at 20% 50%,
+      rgba(220, 20, 60, 0.15) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 80%,
+      rgba(220, 20, 60, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 50% 20%,
+      rgba(220, 20, 60, 0.08) 0%,
+      transparent 50%
+    );
+  pointer-events: none;
+  animation: backgroundFloat 15s ease-in-out infinite;
+}
+
+@keyframes backgroundFloat {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-10px, 10px);
+  }
+}
+
+/* ===================================
+   Container & Layout
+   =================================== */
+
+.container {
+  max-width: 720px;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  animation: fadeInUp var(--transition-slow);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===================================
+   Loading State
+   =================================== */
+
+.loading {
+  text-align: center;
+  color: white;
+  padding: 40px;
+  animation: fadeIn var(--transition-base);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.loading-spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: var(--border-radius-full);
+  margin: 0 auto 20px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading p {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* ===================================
+   Error State
+   =================================== */
+
+.error {
+  background: var(--card-bg);
+  padding: 32px;
+  border-radius: var(--border-radius);
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+  animation: fadeIn var(--transition-base);
+}
+
+.error h2 {
+  color: #e53e3e;
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+.error p {
+  color: var(--text-secondary);
+  font-size: 16px;
+}
+
+/* ===================================
+   Profile Section
+   =================================== */
+
+.profile {
+  text-align: center;
+  margin-bottom: 40px;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.profile-image {
+  width: 120px;
+  height: 120px;
+  border-radius: var(--border-radius-full);
+  border: 4px solid var(--primary-color);
+  margin: 0 auto 20px;
+  object-fit: cover;
+  box-shadow: var(--shadow-lg);
+  display: block;
+  background: white;
+  transition: transform var(--transition-base);
+}
+
+.profile-image:hover {
+  transform: scale(1.05);
+}
+
+.profile h1 {
+  color: white;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  letter-spacing: -0.5px;
+}
+
+.profile p {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 500px;
+  margin: 0 auto;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ===================================
+   Links Section
+   =================================== */
+
+.links {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.link-item {
+  opacity: 0;
+  animation: slideIn 0.5s ease-out forwards;
+}
+
+/* Stagger animation for links */
+.link-item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.link-item:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.link-item:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.link-item:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.link-item:nth-child(5) {
+  animation-delay: 0.5s;
+}
+.link-item:nth-child(6) {
+  animation-delay: 0.6s;
+}
+.link-item:nth-child(7) {
+  animation-delay: 0.7s;
+}
+.link-item:nth-child(8) {
+  animation-delay: 0.8s;
+}
+.link-item:nth-child(9) {
+  animation-delay: 0.9s;
+}
+.link-item:nth-child(10) {
+  animation-delay: 1s;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.link-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 140px;
+  padding: 20px 16px;
+  background: var(--link-bg);
+  color: var(--link-text);
+  text-decoration: none;
+  border-radius: var(--border-radius);
+  font-size: 15px;
+  font-weight: 600;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-base);
+  cursor: pointer;
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+/* Glassmorphism effect on links */
+.link-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(220, 20, 60, 0.1), transparent);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.link-button:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--link-hover);
+  background: linear-gradient(
+    135deg,
+    rgba(220, 20, 60, 0.1),
+    rgba(30, 33, 45, 0.9)
+  );
+}
+
+.link-button:hover::before {
+  opacity: 1;
+}
+
+.link-button:active {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.link-icon {
+  font-size: 32px;
+  flex-shrink: 0;
+  line-height: 1;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.link-icon svg {
+  width: 100%;
+  height: 100%;
+  stroke: currentColor;
+  transition: all var(--transition-base);
+}
+
+.link-button:hover .link-icon svg {
+  stroke: var(--primary-color);
+  transform: scale(1.1);
+}
+
+.link-title {
+  text-align: center;
+  line-height: 1.3;
+  font-size: inherit;
+}
+
+/* ===================================
+   Social Links Section
+   =================================== */
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+  animation: fadeIn 1s ease-out;
+  animation-delay: 0.7s;
+  animation-fill-mode: backwards;
+}
+
+.social-icon {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(220, 20, 60, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: var(--border-radius-full);
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  border: 2px solid rgba(220, 20, 60, 0.4);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.social-icon::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: var(--primary-color);
+  transform: translate(-50%, -50%);
+  transition: width 0.3s ease, height 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: scale(1.15) rotate(5deg);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 20px rgba(220, 20, 60, 0.5);
+}
+
+.social-icon:hover::before {
+  width: 100%;
+  height: 100%;
+}
+
+.social-icon svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+  transition: fill var(--transition-fast);
+  position: relative;
+  z-index: 1;
+}
+
+.social-icon:hover svg {
+  fill: white;
+}
+
+/* Brand-specific hover colors */
+.social-icon.facebook:hover svg {
+  fill: #1877f2;
+}
+.social-icon.twitter:hover svg {
+  fill: #1da1f2;
+}
+.social-icon.instagram:hover svg {
+  fill: #e4405f;
+}
+.social-icon.whatsapp:hover svg {
+  fill: #25d366;
+}
+.social-icon.tiktok:hover svg {
+  fill: #000000;
+}
+.social-icon.youtube:hover svg {
+  fill: #ff0000;
+}
+.social-icon.linkedin:hover svg {
+  fill: #0077b5;
+}
+.social-icon.github:hover svg {
+  fill: #333333;
+}
+
+/* ===================================
+   Footer
+   =================================== */
+
+.footer {
+  text-align: center;
+  padding: 20px 0;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  animation: fadeIn 1s ease-out;
+  animation-delay: 1s;
+  animation-fill-mode: backwards;
+}
+
+.footer p {
+  margin: 0;
+}
+
+/* ===================================
+   Responsive Design
+   =================================== */
+
+/* Tablet (640px - 1024px) */
+@media (min-width: 640px) and (max-width: 1024px) {
+  body {
+    padding: 30px;
+  }
+
+  .container {
+    max-width: 600px;
+  }
+}
+
+/* Mobile (< 640px) */
+@media (max-width: 640px) {
+  body {
+    padding: 16px;
+  }
+
+  .profile h1 {
+    font-size: 24px;
+  }
+
+  .profile p {
+    font-size: 14px;
+  }
+
+  .profile-image {
+    width: 100px;
+    height: 100px;
+  }
+
+  .links {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .link-button {
+    min-height: 110px;
+    font-size: 13px;
+    padding: 14px 10px;
+    border-radius: var(--border-radius-sm);
+    gap: 6px;
+  }
+
+  .link-icon {
+    font-size: 24px;
+    width: 28px;
+    height: 28px;
+  }
+
+  .container {
+    max-width: 100%;
+  }
+
+  .social-icon {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+  }
+
+  .social-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .social-links {
+    gap: 12px;
+  }
+}
+
+/* Large Desktop (> 1024px) */
+@media (min-width: 1024px) {
+  body {
+    padding: 40px;
+  }
+
+  .profile h1 {
+    font-size: 36px;
+  }
+
+  .link-button {
+    min-height: 160px;
+    font-size: 16px;
+  }
+}
+
+/* ===================================
+   Additional Animations & Effects
+   =================================== */
+
+/* Pulse animation for profile image */
+@keyframes pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(220, 20, 60, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 15px rgba(220, 20, 60, 0);
+  }
+}
+
+.profile-image {
+  animation: pulse 3s ease-in-out infinite;
+}
+
+/* Shimmer effect on hover for links */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.link-button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(220, 20, 60, 0.3),
+    transparent
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 3s infinite;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.link-button:hover::after {
+  opacity: 1;
+}
+
+/* Floating animation for social icons */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.social-icon {
+  animation: float 3s ease-in-out infinite;
+}
+
+.social-icon:nth-child(1) {
+  animation-delay: 0s;
+}
+.social-icon:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.social-icon:nth-child(3) {
+  animation-delay: 0.4s;
+}
+.social-icon:nth-child(4) {
+  animation-delay: 0.6s;
+}
+.social-icon:nth-child(5) {
+  animation-delay: 0.8s;
+}
+
+/* Glowing text effect for company name */
+.profile h1 {
+  text-shadow: 0 0 10px rgba(220, 20, 60, 0.5), 0 0 20px rgba(220, 20, 60, 0.3),
+    0 2px 8px rgba(0, 0, 0, 0.5);
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px rgba(220, 20, 60, 0.5),
+      0 0 20px rgba(220, 20, 60, 0.3), 0 2px 8px rgba(0, 0, 0, 0.5);
+  }
+  to {
+    text-shadow: 0 0 20px rgba(220, 20, 60, 0.8),
+      0 0 30px rgba(220, 20, 60, 0.5), 0 2px 8px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* ===================================
+   Accessibility
+   =================================== */
+
+/* Focus visible states for keyboard navigation */
+.link-button:focus-visible,
+.social-icon:focus-visible {
+  outline: 3px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Reduced motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .link-button {
+    border: 2px solid currentColor;
+  }
+
+  .social-icon {
+    border: 2px solid white;
+  }
+}
+
+/* ===================================
+   Print Styles
+   =================================== */
+
+@media print {
+  body {
+    background: white;
+  }
+
+  body::before {
+    display: none;
+  }
+
+  .container {
+    max-width: 100%;
+  }
+
+  .link-button {
+    page-break-inside: avoid;
+  }
+
+  .social-links {
+    display: none;
+  }
+}
+
+/* ===================================
+   Utility Classes
+   =================================== */
+
+.hidden {
+  display: none !important;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
