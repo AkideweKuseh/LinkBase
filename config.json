@@ -17,42 +17,42 @@
     {
       "id": 1,
       "title": "About Us",
-      "url": "#about",
+      "url": "https://calogeronghana.com/about",
       "icon": "user",
       "enabled": true
     },
     {
       "id": 2,
       "title": "Our Services",
-      "url": "#services",
+      "url": "https://calogeronghana.com/service-01",
       "icon": "services",
       "enabled": true
     },
     {
       "id": 3,
       "title": "Projects",
-      "url": "#projects",
+      "url": "https://calogeronghana.com/projects/",
       "icon": "projects",
       "enabled": true
     },
     {
       "id": 4,
       "title": "Contact Us",
-      "url": "#contact",
+      "url": "https://calogeronghana.com/contact/",
       "icon": "phone",
       "enabled": true
     },
     {
       "id": 5,
       "title": "Our Website",
-      "url": "#website",
+      "url": "https://calogeronghana.com/",
       "icon": "globe",
       "enabled": true
     },
     {
       "id": 6,
       "title": "Book Appointment",
-      "url": "#appointment",
+      "url": "https://calogeronghana.com/contact/",
       "icon": "calendar",
       "enabled": true
     }
@@ -60,42 +60,37 @@
   "socialLinks": [
     {
       "platform": "facebook",
-      "url": "https://facebook.com/username",
+      "url": "https://web.facebook.com/Calogeronghana",
       "enabled": true
     },
     {
       "platform": "twitter",
-      "url": "https://twitter.com/username",
+      "url": "https://x.com/Calogeronghana",
       "enabled": true
     },
     {
       "platform": "instagram",
-      "url": "https://instagram.com/username",
+      "url": "https://www.instagram.com/calogeronghana",
       "enabled": true
     },
     {
       "platform": "whatsapp",
-      "url": "https://wa.me/1234567890",
+      "url": "https://wa.me/+233554447181",
       "enabled": true
     },
     {
       "platform": "tiktok",
-      "url": "https://tiktok.com/@username",
+      "url": "https://tiktok.com/@calogeronghana",
       "enabled": true
     },
     {
       "platform": "youtube",
-      "url": "https://youtube.com/@channel",
+      "url": "https://www.youtube.com/@CalogeronGhanaLimited",
       "enabled": true
     },
     {
       "platform": "linkedin",
-      "url": "https://linkedin.com/in/username",
-      "enabled": false
-    },
-    {
-      "platform": "github",
-      "url": "https://github.com/username",
+      "url": "#",
       "enabled": false
     }
   ]

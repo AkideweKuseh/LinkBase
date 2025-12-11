@@ -76,13 +76,16 @@ function renderLinks(links) {
             ${enabledLinks
               .map((link, index) => {
                 const icon = linkIcons[link.icon] || link.icon;
+                const isSpecialLink =
+                  link.url.startsWith("mailto:") || link.url.startsWith("tel:");
+                const targetAttr = isSpecialLink
+                  ? ""
+                  : 'target="_blank" rel="noopener noreferrer"';
                 return `
                 <div class="link-item" style="animation-delay: ${
                   0.1 * (index + 1)
                 }s">
-                    <a href="${
-                      link.url
-                    }" class="link-button" target="_blank" rel="noopener noreferrer">
+                    <a href="${link.url}" class="link-button" ${targetAttr}>
                         <span class="link-icon">${icon}</span>
                         <span>${link.title}</span>
                     </a>
